@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAIR SALON 凪 -nagi- | 表参道の美容室</title>
+<meta name="description" content="架空案件モックアップ：表参道の美容室「凪」のランディングページデザイン">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F1EC;
+    --surface: #FFFFFF;
+    --ink: #2B2320;
+    --ink-muted: #8A7A6F;
+    --line: #E5D9CE;
+    --accent: #A9667A;
+    --accent-deep: #6E4655;
+    --accent-soft: #F0DFE3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #221C1A;
+      --surface: #2A2320;
+      --ink: #F3EAE3;
+      --ink-muted: #B8A99C;
+      --line: #3C332E;
+      --accent: #D79CAE;
+      --accent-deep: #E7B9C6;
+      --accent-soft: #3A2B30;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #221C1A;
+    --surface: #2A2320;
+    --ink: #F3EAE3;
+    --ink-muted: #B8A99C;
+    --line: #3C332E;
+    --accent: #D79CAE;
+    --accent-deep: #E7B9C6;
+    --accent-soft: #3A2B30;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+    font-weight: 300;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img, svg { max-width: 100%; display: block; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  h1, h2, h3 { font-family: "Zen Old Mincho", serif; font-weight: 600; text-wrap: balance; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; max-width: 1100px; margin: 0 auto; }
+  .brand { font-family: "Zen Old Mincho", serif; font-size: 1.1rem; letter-spacing: 0.08em; }
+  .brand span { color: var(--accent-deep); }
+  .nav-links { display: flex; gap: 40px; font-size: 0.85rem; letter-spacing: 0.04em; }
+  .nav-links a { position: relative; padding-bottom: 4px; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--accent); transform: scaleX(0); transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .nav-cta {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.05em;
+    border: 1px solid var(--ink); padding: 9px 18px; border-radius: 999px;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--bg); }
+  .menu-toggle { display: none; }
+
+  /* Hero */
+  .hero { padding: 120px 32px 100px; position: relative; overflow: hidden; }
+  .hero-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: end; }
+  .hero-title { font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height: 1.25; margin-top: 18px; }
+  .hero-title small { display: block; font-family: "IBM Plex Mono", monospace; font-size: 0.32em; letter-spacing: 0.3em; color: var(--ink-muted); font-weight: 400; margin-top: 20px; }
+  .hero-copy { font-size: 0.95rem; color: var(--ink-muted); max-width: 30ch; margin-top: 28px; }
+  .hero-visual {
+    aspect-ratio: 3/4; border-radius: 2px; position: relative;
+    background:
+      radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 60%),
+      linear-gradient(155deg, var(--accent-soft), var(--surface) 70%);
+    border: 1px solid var(--line);
+  }
+  .hero-visual::before {
+    content: ""; position: absolute; inset: 18px; border: 1px solid color-mix(in srgb, var(--accent-deep) 40%, transparent);
+  }
+  .hero-visual::after {
+    content: "SINCE 2018"; position: absolute; bottom: 20px; left: 20px;
+    font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--accent-deep);
+  }
+  .hero-cta { display: flex; gap: 16px; margin-top: 36px; }
+  .btn-primary {
+    background: var(--ink); color: var(--bg); font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8rem; letter-spacing: 0.05em; padding: 14px 26px; border-radius: 999px;
+    transition: opacity 0.25s ease;
+  }
+  .btn-primary:hover { opacity: 0.8; }
+  .btn-ghost {
+    border-bottom: 1px solid var(--ink); font-size: 0.85rem; padding-bottom: 3px;
+    display: inline-flex; align-items: center; height: fit-content; align-self: center;
+  }
+
+  section { padding: 100px 0; border-top: 1px solid var(--line); }
+  .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 56px; flex-wrap: wrap; }
+  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-top: 14px; }
+  .section-note { max-width: 32ch; font-size: 0.88rem; color: var(--ink-muted); }
+
+  /* Concept */
+  .concept-body { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .pull-quote {
+    font-family: "Zen Old Mincho", serif; font-size: 1.5rem; line-height: 1.9;
+    border-left: 1px solid var(--accent); padding-left: 28px; color: var(--ink);
+  }
+  .concept-text { font-size: 0.95rem; color: var(--ink-muted); }
+  .concept-text p + p { margin-top: 20px; }
+
+  /* Menu */
+  .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 64px; }
+  .menu-cat { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent-deep); margin-bottom: 18px; display: block; }
+  .menu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 13px 0; border-bottom: 1px dashed var(--line); font-size: 0.95rem; }
+  .menu-row .name { display: flex; flex-direction: column; }
+  .menu-row .desc { font-size: 0.75rem; color: var(--ink-muted); margin-top: 3px; }
+  .menu-row .price { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(2, 160px); gap: 10px; }
+  .gallery div { border-radius: 2px; }
+  .g1 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, var(--accent-soft), var(--accent) 140%); }
+  .g2 { grid-column: span 2; background: var(--surface); border: 1px solid var(--line); }
+  .g3 { grid-column: span 2; background: var(--ink); }
+  .g4 { grid-column: span 3; background: color-mix(in srgb, var(--accent) 30%, var(--surface)); }
+  .g5 { grid-column: span 3; background: var(--surface); border: 1px solid var(--line); }
+
+  /* Access */
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .info-row { display: flex; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  .info-row .k { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink-muted); width: 100px; flex-shrink: 0; padding-top: 2px; }
+  .map-block {
+    aspect-ratio: 4/3; background:
+      repeating-linear-gradient(0deg, transparent, transparent 23px, var(--line) 24px),
+      repeating-linear-gradient(90deg, transparent, transparent 23px, var(--line) 24px),
+      var(--surface);
+    border: 1px solid var(--line); position: relative;
+  }
+  .map-block::after {
+    content: "MAP"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--ink-muted);
+  }
+
+  footer { padding: 90px 0 48px; text-align: center; }
+  .footer-cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 32px; }
+  .footer-meta { margin-top: 70px; display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--ink-muted); font-family: "IBM Plex Mono", monospace; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+  .mock-badge {
+    position: fixed; bottom: 20px; right: 20px; z-index: 30;
+    background: var(--ink); color: var(--bg); font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem; letter-spacing: 0.08em; padding: 9px 14px; border-radius: 999px; opacity: 0.85;
+  }
+
+  @media (max-width: 780px) {
+    .nav-links { display: none; }
+    .hero-grid, .concept-body, .menu-grid, .access-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 140px); }
+    .g1 { grid-column: span 2; grid-row: span 1; }
+    .g3, .g4, .g5 { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mock-badge">MOCKUP — 架空案件</div>
+
+<header>
+  <div class="nav">
+    <div class="brand">凪 <span>nagi</span></div>
+    <nav class="nav-links">
+      <a href="#concept">コンセプト</a>
+      <a href="#menu">メニュー</a>
+      <a href="#gallery">ギャラリー</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <a class="nav-cta" href="#reserve">ご予約</a>
+  </div>
+</header>
+
+<section class="hero" style="border-top:none;">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Omotesando / Hair Salon</span>
+      <h1 class="hero-title">静けさの中で、<br>髪と向き合う。<small>HAIR SALON NAGI — TOKYO</small></h1>
+      <p class="hero-copy">表参道の路地裏にたたずむ、1日6席限定の完全予約制サロン。忙しい日々の中に、ひと呼吸つける時間を。</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#reserve">WEBで予約する</a>
+        <a class="btn-ghost" href="#concept">コンセプトを見る ↓</a>
+      </div>
+    </div>
+    <div class="hero-visual"></div>
+  </div>
+</section>
+
+<section id="concept">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Concept</span>
+        <h2>削ぎ落とした先にある、上質。</h2>
+      </div>
+      <p class="section-note">流行を追うのではなく、その人自身の骨格や質感を活かすスタイルを。</p>
+    </div>
+    <div class="concept-body">
+      <p class="pull-quote">「似合う」は、足すことより<br>引くことで見えてくる。</p>
+      <div class="concept-text">
+        <p>凪は、香り・音・光を極力抑えた空間で、髪本来の質感と向き合うサロンです。派手な演出よりも、鏡の前に座った瞬間の静けさを大切にしています。</p>
+        <p>担当は完全指名制。カウンセリングには他店より長く時間を取り、なりたい姿ではなく「無理なく続けられる姿」をご提案します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Menu &amp; Price</span>
+        <h2>料金一覧</h2>
+      </div>
+      <p class="section-note">すべて税込価格。初めての方はカウンセリング込みで承ります。</p>
+    </div>
+    <div class="menu-grid">
+      <div>
+        <span class="menu-cat">CUT</span>
+        <div class="menu-row"><span class="name">カット<span class="desc">シャンプー・ブロー込み</span></span><span class="price">¥7,700〜</span></div>
+        <div class="menu-row"><span class="name">前髪カット</span><span class="price">¥1,100</span></div>
+        <div class="menu-row"><span class="name">カウンセリングのみ</span><span class="price">¥0</span></div>
+      </div>
+      <div>
+        <span class="menu-cat">COLOR &amp; TREATMENT</span>
+        <div class="menu-row"><span class="name">フルカラー<span class="desc">カット込み</span></span><span class="price">¥15,400〜</span></div>
+        <div class="menu-row"><span class="name">ヘッドスパ<span class="desc">45分</span></span><span class="price">¥6,600</span></div>
+        <div class="menu-row"><span class="name">高濃度トリートメント</span><span class="price">¥4,400</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Gallery</span>
+        <h2>店内の空気感</h2>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Access</span>
+        <h2>店舗情報</h2>
+      </div>
+    </div>
+    <div class="access-grid">
+      <div>
+        <div class="info-row"><span class="k">ADDRESS</span><span>東京都渋谷区神宮前 5-XX-XX 2F（架空住所）</span></div>
+        <div class="info-row"><span class="k">ACCESS</span><span>表参道駅 B1出口より徒歩4分</span></div>
+        <div class="info-row"><span class="k">HOURS</span><span>10:00 - 19:00（最終受付 17:30）</span></div>
+        <div class="info-row"><span class="k">CLOSED</span><span>毎週火曜・第3水曜</span></div>
+        <div class="info-row"><span class="k">TEL</span><span>03-XXXX-XXXX</span></div>
+      </div>
+      <div class="map-block"></div>
+    </div>
+  </div>
+</section>
+
+<footer id="reserve">
+  <div class="wrap footer-cta">
+    <span class="eyebrow">Reservation</span>
+    <h2>次の1時間を、<br>自分のために。</h2>
+    <a class="btn-primary" href="#" onclick="return false;">WEB予約フォームへ</a>
+    <div class="footer-meta">
+      <span>© NAGI HAIR SALON — 架空案件モックアップ</span>
+      <span>DESIGN &amp; CODE: PORTFOLIO WORK 01</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

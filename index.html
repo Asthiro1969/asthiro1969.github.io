@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本木広郎 | ウェブサイトのご相談承ります</title>
+<meta name="description" content="デザインから実装まで手がけるウェブデザイナーのポートフォリオサイト。コーポレートサイト・LP制作を承ります。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7EFE4;
+    --surface: #FFFFFF;
+    --ink: #3B2E28;
+    --ink-muted: #9C8A7C;
+    --line: #E7D9C7;
+    --accent: #7A4B6B;
+    --accent-soft: #F0DCE6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Zen Maru Gothic", sans-serif; font-weight: 400;
+    line-height: 1.9; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .mono { font-family: "IBM Plex Mono", monospace; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* live status dot */
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); position: relative; flex-shrink: 0; }
+  .live-dot::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--accent);
+    animation: pulse 2.2s ease-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) { .live-dot::after { animation: none; } }
+  @keyframes pulse { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(1.9); opacity: 0; } }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  .skills-row .reveal:nth-child(2), .process-row .reveal:nth-child(2) { transition-delay: 0.08s; }
+  .skills-row .reveal:nth-child(3), .process-row .reveal:nth-child(3) { transition-delay: 0.16s; }
+  .process-row .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+  header { padding: 26px 0; position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); }
+  .head-row { display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; }
+  .head-nav { display: flex; gap: 26px; font-size: 0.85rem; }
+  .head-nav a { padding: 8px 4px; position: relative; }
+  .head-nav a::after { content: ""; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transition: transform 0.25s ease; }
+  .head-nav a:hover::after { transform: scaleX(1); }
+  .nav-cta { background: var(--accent); color: #fff; padding: 10px 22px; border-radius: 999px; font-size: 0.85rem; font-weight: 500; display: inline-block; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 18px -8px color-mix(in srgb, var(--accent) 55%, transparent); }
+
+  .hero { position: relative; padding: 60px 0 90px; overflow: hidden; }
+  .blob { position: absolute; z-index: 0; border-radius: 43% 57% 62% 38% / 45% 41% 59% 55%; opacity: 0.9; animation: float 10s ease-in-out infinite; }
+  .blob1 { width: 420px; height: 420px; background: var(--accent-soft); top: -120px; right: -100px; animation-duration: 12s; }
+  .blob2 { width: 220px; height: 220px; background: #EDE3D3; bottom: -60px; left: -60px; animation-duration: 9s; animation-delay: -3s; }
+  @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-14px, 18px) scale(1.05); } }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); padding: 7px 16px; border-radius: 999px; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+  .hero-title { font-size: clamp(2.1rem, 5.2vw, 3.2rem); font-weight: 900; line-height: 1.55; margin: 22px 0 20px; text-wrap: balance; }
+  .hero-title .underline { position: relative; white-space: nowrap; }
+  .hero-title .underline svg { position: absolute; left: 0; right: 0; bottom: -6px; width: 100%; height: 12px; }
+  .hero-title .underline path { stroke-dasharray: 210; stroke-dashoffset: 210; animation: draw 1s 0.5s ease forwards; }
+  @media (prefers-reduced-motion: reduce) { .hero-title .underline path { animation: none; stroke-dashoffset: 0; } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .hero-copy { font-size: 1rem; color: var(--ink-muted); max-width: 42ch; }
+  .hero-cta { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; padding: 15px 30px; border-radius: 999px; font-size: 0.9rem; font-weight: 500; box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--accent) 60%, transparent); display: inline-block; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -8px color-mix(in srgb, var(--accent) 65%, transparent); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-secondary { background: var(--surface); border: 1px solid var(--line); padding: 15px 26px; border-radius: 999px; font-size: 0.9rem; display: inline-block; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .signature { margin-top: 30px; font-size: 0.85rem; color: var(--ink-muted); }
+  .signature b { color: var(--ink); font-weight: 700; }
+
+  section { padding: 70px 0; }
+  .card-section { background: var(--surface); border-radius: 28px; }
+  .sec-head { text-align: center; margin-bottom: 44px; }
+  .sec-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+  .sec-title { font-size: 1.7rem; font-weight: 900; margin-top: 10px; }
+  .sec-note { font-size: 0.88rem; color: var(--ink-muted); margin-top: 10px; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 20px 40px 40px; }
+  .about-text p { font-size: 0.96rem; color: var(--ink-muted); }
+  .about-text p + p { margin-top: 16px; }
+  .profile-card { background: var(--bg); border-radius: 20px; padding: 28px 26px; transition: transform 0.3s ease; }
+  .profile-card:hover { transform: translateY(-3px); }
+  .profile-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 0.88rem; }
+  .profile-row:last-child { border-bottom: none; }
+  .profile-row span:first-child { color: var(--ink-muted); }
+  .profile-row span:last-child { font-weight: 500; text-align: right; }
+  .profile-row .live { display: inline-flex; align-items: center; gap: 8px; }
+
+  .skills-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 40px; }
+  .skill-card { background: var(--bg); border-radius: 20px; padding: 26px 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .skill-card:hover { transform: translateY(-6px); box-shadow: 0 16px 30px -14px rgba(59, 46, 40, 0.25); }
+  .skill-emoji { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--accent); font-weight: 700; transition: transform 0.3s ease; }
+  .skill-card:hover .skill-emoji { transform: rotate(-8deg) scale(1.08); }
+  .skill-card h3 { font-size: 1rem; font-weight: 700; margin: 16px 0 8px; }
+  .skill-card p { font-size: 0.85rem; color: var(--ink-muted); }
+
+  .work-wrap { padding: 0 40px 40px; }
+  .work-card { background: var(--bg); border-radius: 24px; padding: 20px; display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+  .work-visual { width: 260px; height: 180px; flex-shrink: 0; border-radius: 18px; overflow: hidden; position: relative; background: var(--surface); box-shadow: 0 14px 28px -16px rgba(59, 46, 40, 0.35); transition: transform 0.35s ease; }
+  .work-card:hover .work-visual { transform: scale(1.03) rotate(-0.6deg); }
+  .work-visual .chrome { position: absolute; top: 0; left: 0; right: 0; height: 22px; background: var(--surface); display: flex; align-items: center; gap: 5px; padding: 0 10px; z-index: 2; border-bottom: 1px solid var(--line); }
+  .work-visual .chrome span { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+  .work-visual iframe { position: absolute; top: 22px; left: 0; width: 400%; height: 400%; border: none; transform: scale(0.25); transform-origin: top left; }
+  .work-info { flex: 1; min-width: 240px; }
+  .work-tag { display: inline-block; font-size: 0.72rem; background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-weight: 500; margin-bottom: 12px; }
+  .work-info h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 10px; }
+  .work-info p { font-size: 0.9rem; color: var(--ink-muted); max-width: 50ch; }
+  .work-points { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; max-width: 52ch; }
+  .work-points li { list-style: none; position: relative; padding-left: 18px; font-size: 0.84rem; color: var(--ink-muted); }
+  .work-points li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .work-open { display: inline-block; margin-top: 16px; font-size: 0.85rem; color: var(--accent); font-weight: 500; border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; }
+
+  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 24px; }
+  .faq-item summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; font-family: "IBM Plex Mono", monospace; font-size: 1.1rem; color: var(--accent); flex-shrink: 0; transition: transform 0.25s ease; }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { margin-top: 14px; font-size: 0.88rem; color: var(--ink-muted); }
+
+  .response-time { margin-top: 16px; font-size: 0.8rem; color: var(--ink-muted); }
+
+  .process-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 0 40px 40px; }
+  .process-item { background: var(--bg); border-radius: 20px; padding: 24px 20px; transition: transform 0.3s ease; }
+  .process-item:hover { transform: translateY(-6px); }
+  .process-num { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; }
+  .process-item h3 { font-size: 0.95rem; font-weight: 700; margin: 14px 0 6px; }
+  .process-item p { font-size: 0.8rem; color: var(--ink-muted); }
+
+  .contact-section { text-align: center; }
+  .contact-section .sec-title { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+  .contact-section p { font-size: 0.95rem; color: var(--ink-muted); max-width: 44ch; margin: 16px auto 32px; }
+  .platforms { margin-top: 30px; font-size: 0.8rem; color: var(--ink-muted); }
+
+  footer { padding: 40px 0; text-align: center; font-size: 0.8rem; color: var(--ink-muted); }
+
+  @media (max-width: 780px) {
+    .head-nav { display: none; }
+    .about-grid, .skills-row, .process-row { grid-template-columns: 1fr; }
+    .work-card { flex-direction: column; align-items: stretch; }
+    .work-visual { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="head-row">
+    <div class="brand"><span class="live-dot"></span>本木広郎</div>
+    <nav class="head-nav">
+      <a href="#about">わたしについて</a>
+      <a href="#skills">できること</a>
+      <a href="#works">作品</a>
+      <a href="#process">流れ</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="nav-cta" href="#contact">相談してみる</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="wrap hero-inner">
+    <span class="hero-eyebrow"><span class="live-dot"></span>Web Designer / Front-end Engineer</span>
+    <h1 class="hero-title">デザインも実装も、<br><span class="underline">まとめて<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 8 Q 50 2, 100 7 T 198 6" fill="none" stroke="#7A4B6B" stroke-width="4" stroke-linecap="round"/></svg></span>お任せ<br>ください。</h1>
+    <p class="hero-copy">エンジニアとして培った丁寧さと、デザインへのこだわりを両方持ったウェブデザイナーです。小さなお店やお一人での事業を、丁寧に作り込んだサイトで応援します。</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#works">作品を見てみる</a>
+      <a class="btn-secondary" href="#contact">お話を聞かせてください</a>
+    </div>
+    <p class="signature">designed &amp; built by <b>本木広郎</b></p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap card-section about-grid reveal">
+    <div class="about-text">
+      <span class="sec-eyebrow"><span class="live-dot"></span>About</span>
+      <h2 class="sec-title" style="margin-top:10px;">わたしについて</h2>
+      <p style="margin-top:20px;">もともとはエンジニアとして、データと向き合う仕事をしていました。「情報の見せ方ひとつで伝わり方が変わる」と感じたことがきっかけで、デザインの世界に踏み込みました。</p>
+      <p>デザインツールの試作だけで終わらせず、コードに落とし込むところまで自分の手で仕上げます。公開後に「思っていたのと違う」が起きにくい進め方を心がけています。</p>
+      <p>要素を詰め込みすぎず、伝えたいことがきちんと届く構成を大切にしています。派手さよりも、使う人・見る人にとっての心地よさを優先しています。</p>
+    </div>
+    <div class="profile-card">
+      <div class="profile-row"><span>お名前</span><span>本木広郎</span></div>
+      <div class="profile-row"><span>お仕事</span><span>Web Designer / Engineer</span></div>
+      <div class="profile-row"><span>前職</span><span>システムエンジニア</span></div>
+      <div class="profile-row"><span>注力分野</span><span>個人店・小規模サイト</span></div>
+      <div class="profile-row"><span>ご依頼</span><span class="live"><span class="live-dot"></span>随時募集中です</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow"><span class="live-dot"></span>Skills</span>
+      <h2 class="sec-title">できること</h2>
+      <p class="sec-note">デザインと技術、両方の視点でお手伝いします</p>
+    </div>
+    <div class="skills-row">
+      <div class="skill-card reveal">
+        <div class="skill-emoji mono">&lt;/&gt;</div>
+        <h3>コードで直接つくる</h3>
+        <p>HTML / CSS / JavaScriptで、見た目だけでなく動きまで丁寧に仕上げます。</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-emoji mono">Σ</div>
+        <h3>公開して終わりにしない</h3>
+        <p>Python・BIツールの経験を活かし、公開後のアクセス状況を見ながら「どうすればお問い合わせが増えるか」を一緒に考えます。</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-emoji mono">✂</div>
+        <h3>ちょうどよく、削ぐ</h3>
+        <p>詰め込みすぎず、伝えたいことがきちんと届くデザインを心がけています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap card-section reveal" style="padding-top:44px;">
+    <div class="sec-head">
+      <span class="sec-eyebrow"><span class="live-dot"></span>Works</span>
+      <h2 class="sec-title">つくったもの</h2>
+      <p class="sec-note">まずは1件、じっくり作り込んだケーススタディです</p>
+    </div>
+    <div class="work-wrap">
+      <div class="work-card">
+        <div class="work-visual">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <iframe src="works/salon/index.html" title="HAIR SALON 凪 プレビュー" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="work-info">
+          <span class="work-tag">コンセプトワーク・架空案件</span>
+          <h3>HAIR SALON 凪 -nagi-</h3>
+          <p>表参道の美容室を想定したランディングページ。「静けさ」をテーマに、余白と細い罫線だけで上質さを表現しました。</p>
+          <ul class="work-points">
+            <li>写真に頼らず、余白と明朝体の見出しだけで「静けさ」を表現</li>
+            <li>完全予約制という業態に合わせ、CTAを「WEB予約」1つに絞って離脱を防止</li>
+            <li>料金表は情報量を絞り、価格で迷わせない一覧性を優先したレイアウトに</li>
+          </ul>
+          <a class="work-open" href="works/salon/index.html" target="_blank" rel="noopener">サイトを見てみる →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow"><span class="live-dot"></span>Process</span>
+      <h2 class="sec-title">制作の流れ</h2>
+      <p class="sec-note">ヒアリングから公開まで、目安1〜3週間で対応します</p>
+    </div>
+    <div class="process-row">
+      <div class="process-item reveal"><span class="process-num">1</span><h3>ヒアリング</h3><p>目的やイメージを、じっくりお聞きします。</p></div>
+      <div class="process-item reveal"><span class="process-num">2</span><h3>構成・デザイン</h3><p>方向性をすり合わせながらデザイン案を作成します。</p></div>
+      <div class="process-item reveal"><span class="process-num">3</span><h3>実装</h3><p>コーディングまで一貫して担当します。</p></div>
+      <div class="process-item reveal"><span class="process-num">4</span><h3>公開・納品</h3><p>最終確認のうえ公開。ちょっとした調整も対応します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow"><span class="live-dot"></span>FAQ</span>
+      <h2 class="sec-title">よくある質問</h2>
+      <p class="sec-note">ご依頼前に気になりやすい点をまとめました</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item" open>
+        <summary>料金はどのくらいかかりますか？</summary>
+        <p>サイトの規模やページ数によって幅があるため、まずは概要をお伺いしたうえでお見積りします。ご予算に応じたご提案も可能ですので、まずはお気軽にご相談ください。</p>
+      </details>
+      <details class="faq-item">
+        <summary>修正は何回までお願いできますか？</summary>
+        <p>回数の上限は設けていません。内容を確認しながら、都度ご相談のうえ対応します。</p>
+      </details>
+      <details class="faq-item">
+        <summary>公開後のサポートはありますか？</summary>
+        <p>対応できる範囲は内容や規模によって異なるため、個別にご相談ください。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="wrap reveal">
+    <span class="sec-eyebrow"><span class="live-dot"></span>Contact</span>
+    <h2 class="sec-title" style="margin-top:10px;">お気軽にお話しください</h2>
+    <p>「まだ内容が固まっていない」という段階でも大丈夫です。ちょっとした相談から、お気軽にどうぞ。</p>
+    <a class="btn-primary" href="mailto:tros8971@gmail.com">tros8971@gmail.com へ連絡する</a>
+    <p class="response-time">通常1〜2営業日以内にご返信します</p>
+    <div class="platforms">CROWDWORKS / LANCERS からのご依頼も承っています</div>
+  </div>
+</section>
+
+<footer>© 2026 本木広郎</footer>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+  }
+</script>
+
+</body>
+</html>
