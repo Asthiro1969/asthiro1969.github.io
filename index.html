@@ -102,6 +102,11 @@
   .profile-row span:last-child { font-weight: 500; text-align: right; }
   .profile-row .live { display: inline-flex; align-items: center; gap: 8px; }
 
+  .qualifications-wrap { padding: 28px 40px; }
+  .qual-label { font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+  .qual-pills { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .qual-pill { font-size: 0.8rem; background: var(--bg); color: var(--ink); padding: 8px 16px; border-radius: 999px; }
+
   .skills-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 40px; }
   .skill-card { background: var(--bg); border-radius: 20px; padding: 26px 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
   .skill-card:hover { transform: translateY(-6px); box-shadow: 0 16px 30px -14px rgba(59, 46, 40, 0.25); }
@@ -204,6 +209,17 @@
       <div class="profile-row"><span>前職</span><span>システムエンジニア</span></div>
       <div class="profile-row"><span>注力分野</span><span>個人店・小規模サイト</span></div>
       <div class="profile-row"><span>ご依頼</span><span class="live"><span class="live-dot"></span>随時募集中です</span></div>
+    </div>
+  </div>
+  <div class="wrap card-section qualifications-wrap reveal" style="margin-top:20px;">
+    <span class="qual-label">資格</span>
+    <div class="qual-pills">
+      <span class="qual-pill">基本情報技術者</span>
+      <span class="qual-pill">Python3エンジニア認定 基礎試験</span>
+      <span class="qual-pill">Python3エンジニア認定 データ分析試験</span>
+      <span class="qual-pill">Python3エンジニア認定 実践試験</span>
+      <span class="qual-pill">G検定（JDLA）</span>
+      <span class="qual-pill">データサイエンティスト検定 リテラシーレベル</span>
     </div>
   </div>
 </section>
