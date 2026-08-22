@@ -48,7 +48,7 @@
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
   .skills-row .reveal:nth-child(2), .process-row .reveal:nth-child(2) { transition-delay: 0.08s; }
   .skills-row .reveal:nth-child(3), .process-row .reveal:nth-child(3) { transition-delay: 0.16s; }
-  .process-row .reveal:nth-child(4) { transition-delay: 0.24s; }
+  .skills-row .reveal:nth-child(4), .process-row .reveal:nth-child(4) { transition-delay: 0.24s; }
 
   header { padding: 26px 0; position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); }
   .head-row { display: flex; justify-content: space-between; align-items: center; }
@@ -107,7 +107,7 @@
   .qual-pills { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
   .qual-pill { font-size: 0.8rem; background: var(--bg); color: var(--ink); padding: 8px 16px; border-radius: 999px; }
 
-  .skills-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 40px; }
+  .skills-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 40px 40px; }
   .skill-card { background: var(--bg); border-radius: 20px; padding: 26px 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
   .skill-card:hover { transform: translateY(-6px); box-shadow: 0 16px 30px -14px rgba(59, 46, 40, 0.25); }
   .skill-emoji { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--accent); font-weight: 700; transition: transform 0.3s ease; }
@@ -247,6 +247,11 @@
         <h3>ちょうどよく、削ぐ</h3>
         <p>詰め込みすぎず、伝えたいことがきちんと届くデザインを心がけています。</p>
       </div>
+      <div class="skill-card reveal">
+        <div class="skill-emoji mono">WP</div>
+        <h3>WordPress（既存テーマの導入・設定）</h3>
+        <p>既存テーマの導入・カスタマイズに対応しています。まだ経験は限られているため、ケーススタディで実際の作業範囲をご確認いただけます。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -256,9 +261,9 @@
     <div class="sec-head">
       <span class="sec-eyebrow"><span class="live-dot"></span>Works</span>
       <h2 class="sec-title">つくったもの</h2>
-      <p class="sec-note">まずは1件、じっくり作り込んだケーススタディです</p>
+      <p class="sec-note">実務を想定して、丁寧に作り込んだケーススタディです</p>
     </div>
-    <div class="work-wrap">
+    <div class="work-wrap" style="display:flex; flex-direction:column; gap:24px;">
       <div class="work-card">
         <div class="work-visual">
           <div class="chrome"><span></span><span></span><span></span></div>
@@ -274,6 +279,23 @@
             <li>料金表は情報量を絞り、価格で迷わせない一覧性を優先したレイアウトに</li>
           </ul>
           <a class="work-open" href="works/salon/index.html" target="_blank" rel="noopener">サイトを見てみる →</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-visual">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="works/cafe/preview.jpg" alt="喫茶 こもれび プレビュー" loading="lazy" style="position:absolute; top:22px; left:0; width:100%; height:calc(100% - 22px); object-fit:cover; object-position:top;">
+        </div>
+        <div class="work-info">
+          <span class="work-tag">WordPress・コンセプトワーク</span>
+          <h3>喫茶 こもれび</h3>
+          <p>小さな喫茶店を想定したWordPressサイト。既存テーマ（Twenty Twenty-Four）を導入し、カフェの雰囲気に合わせて配色・コピー・メニュー構成をカスタマイズしました。</p>
+          <ul class="work-points">
+            <li>既存テーマを導入し、配色やボタンなどを暖色系に調整</li>
+            <li>汎用テンプレートの文言を、メニュー6品を含むカフェ向けの内容に書き換え</li>
+            <li>ボタンから該当セクションへスムーズスクロールする、控えめな動きを追加</li>
+          </ul>
+          <a class="work-open" href="http://nagomi-cafe.atwebpages.com/" target="_blank" rel="noopener">サイトを見てみる →</a>
         </div>
       </div>
     </div>
