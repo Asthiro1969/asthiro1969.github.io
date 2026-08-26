@@ -130,6 +130,8 @@
   .work-visual .chrome { position: absolute; top: 0; left: 0; right: 0; height: 22px; background: var(--surface); display: flex; align-items: center; gap: 5px; padding: 0 10px; z-index: 2; border-bottom: 1px solid var(--line); }
   .work-visual .chrome span { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
   .work-visual iframe { position: absolute; top: 22px; left: 0; width: 400%; height: 400%; border: none; transform: scale(0.25); transform-origin: top left; }
+  .work-visual-link { position: absolute; inset: 0; z-index: 4; border-radius: inherit; }
+  .work-visual-link:focus-visible { outline-offset: -4px; }
   .work-info { flex: 1; min-width: 240px; }
   .work-tag { display: inline-block; font-size: 0.72rem; background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-weight: 500; margin-bottom: 12px; }
   .work-info h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 10px; }
@@ -281,6 +283,7 @@
         <div class="work-visual">
           <div class="chrome"><span></span><span></span><span></span></div>
           <iframe src="works/salon/index.html" title="HAIR SALON 凪 プレビュー" loading="lazy" tabindex="-1"></iframe>
+          <a class="work-visual-link" href="works/salon/index.html" target="_blank" rel="noopener" aria-label="HAIR SALON 凪のサイトを新しいタブで開く"></a>
         </div>
         <div class="work-info">
           <span class="work-tag">コンセプトワーク・架空案件</span>
@@ -299,6 +302,7 @@
         <div class="work-visual">
           <div class="chrome"><span></span><span></span><span></span></div>
           <img src="works/cafe/preview.jpg" alt="喫茶 こもれび プレビュー" loading="lazy" style="position:absolute; top:22px; left:0; width:100%; height:calc(100% - 22px); object-fit:cover; object-position:top;">
+          <a class="work-visual-link" href="http://nagomi-cafe.atwebpages.com/" target="_blank" rel="noopener" aria-label="喫茶 こもれびのサイトを新しいタブで開く"></a>
         </div>
         <div class="work-info">
           <span class="work-tag">WordPress・コンセプトワーク</span>
