@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お問い合わせ｜STUDIO ○○○</title>
+<meta name="description" content="架空案件モックアップ：スタジオのご予約・お見積り・ご見学のご相談はこちらから。">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://asthiro1969.github.io/works/studio/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="STUDIO ○○○">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://asthiro1969.github.io/works/studio/contact.html">
+<meta property="og:title" content="お問い合わせ｜STUDIO ○○○">
+<meta property="og:description" content="スタジオのご予約・お見積り・ご見学のご相談はこちらから。">
+<meta property="og:image" content="https://asthiro1969.github.io/works/studio/assets/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0908">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="propbar">
+  <b>［ 提案作品 ］</b> レコーディング／MAスタジオ Webサイト デザイン案 — スタジオ名・ロゴ・写真・住所・料金はすべて架空のものです
+</div>
+
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="index.html">
+      <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">
+      <span class="brand__t"><span class="brand__n">STUDIO ○○○</span><span class="brand__s">RECORDING &amp; MA</span></span>
+    </a>
+    <nav class="gnav" id="gnav" aria-label="メインナビゲーション">
+      <a href="index.html">TOP<small>トップ</small></a>
+      <a href="studio.html">STUDIO<small>スタジオ</small></a>
+      <a href="schedule.html">SCHEDULE<small>予約状況</small></a>
+      <a href="access.html">ACCESS<small>アクセス</small></a>
+      <a href="about.html">ABOUT<small>運営について</small></a>
+      <a href="contact.html" aria-current="page">CONTACT<small>お問い合わせ</small></a>
+    </nav>
+    <div class="hdr__cta">
+      <p class="tel"><b>03-0000-0000</b><span>受付 平日 10:00–19:00</span></p>
+      <a class="btn btn--sm" href="contact.html"><span>Contact</span></a>
+      <button class="navtog" type="button" aria-label="メニューを開く" aria-controls="gnav" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="phead">
+  <div class="wrap">
+    <p class="en">Contact</p>
+    <h1>お問い合わせ</h1>
+    <p class="crumbs"><a href="index.html">TOP</a> <span>/</span> <span>CONTACT</span></p>
+  </div>
+</div>
+
+<main>
+<section class="sec">
+  <div class="wrap wrap--tight">
+    <p class="lead rv" style="font-size:17px">日程だけのご相談でも、内容が固まりきっていない段階でも構いません。<br>お急ぎの場合はお電話（<b>03-0000-0000</b>／平日 10:00–19:00）でも承っております。</p>
+
+    <p class="formmsg" id="form-msg" role="status" aria-live="polite" hidden>送信内容を受け付けました。担当者より翌営業日までにご連絡いたします。
+      <small>※ これはデザイン確認用のデモ表示です。実装時はメール送信・自動返信まで対応します。</small></p>
+
+    <form class="form rv" id="contact-form" style="margin-top:40px" novalidate>
+      <div class="f2">
+        <div class="field"><label for="f-company">会社名・団体名<span class="req">必須</span></label><input id="f-company" type="text" required autocomplete="organization" placeholder="〇〇株式会社"></div>
+        <div class="field"><label for="f-name">ご担当者名<span class="req">必須</span></label><input id="f-name" type="text" required autocomplete="name" placeholder="山田 太郎"></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label for="f-mail">メールアドレス<span class="req">必須</span></label><input id="f-mail" type="email" required autocomplete="email" placeholder="info@example.com"></div>
+        <div class="field"><label for="f-tel">お電話番号</label><input id="f-tel" type="tel" autocomplete="tel" placeholder="03-0000-0000"></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label for="f-type">お問い合わせ種別<span class="req">必須</span></label>
+          <select id="f-type" required><option value="">選択してください</option><option>スタジオのご予約・仮押さえ</option><option>お見積りのご依頼</option><option>ご見学のご希望</option><option>その他のご相談</option></select></div>
+        <div class="field"><label for="f-room">ご希望の部屋</label>
+          <select id="f-room"><option value="">指定なし／相談したい</option><option>Studio A（レコーディングブース）</option><option>MA-1（MAルーム）</option><option>Booth B（ナレーションブース）</option></select></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label for="f-date">ご希望日</label><input id="f-date" type="date"><p class="hint">予約状況ページで空き状況をご確認いただけます。</p></div>
+        <div class="field"><label for="f-hours">ご利用時間の目安</label><input id="f-hours" type="text" placeholder="例）13:00〜18:00（5時間）"></div>
+      </div>
+      <div class="field"><label for="f-body">お問い合わせ内容<span class="req">必須</span></label>
+        <textarea id="f-body" required placeholder="作品の内容、尺、チャンネル数、納品形式などをお知らせいただけますとスムーズです。"></textarea></div>
+      <div class="field">
+        <label>個人情報の取り扱いについて</label>
+        <div class="privacy">
+          <p>ご入力いただいた個人情報は、お問い合わせへの回答およびご予約の管理のみに利用し、ご本人の同意なく第三者へ提供することはありません。お預かりした情報の開示・訂正・削除をご希望の場合は、当スタジオまでご連絡ください。</p>
+          <p style="margin-top:10px">※ 本文はサンプルです。実際の運用に合わせて文言を調整いたします。</p>
+        </div>
+        <label class="checkline"><input type="checkbox" required> 上記に同意して送信します<span class="req">必須</span></label>
+      </div>
+      <div class="btn-row"><button class="btn" type="submit"><span>この内容で送信する<i class="ar">→</i></span></button></div>
+    </form>
+
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <div class="brand">
+          <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">
+          <span class="brand__t"><span class="brand__n">STUDIO ○○○</span><span class="brand__s">RECORDING &amp; MA</span></span>
+        </div>
+        <p class="footaddr">〒000-0000　東京都〇〇区〇〇 1-2-3　〇〇ビル 2F<br>
+        TEL 03-0000-0000／受付 平日 10:00–19:00<br>営業時間 9:00–22:00（土日祝は要予約）</p>
+      </div>
+      <nav class="footnav" aria-label="フッターナビゲーション">
+        <h4>Studio</h4>
+        <ul><li><a href="studio.html">スタジオ紹介</a></li><li><a href="studio.html#equipment">機材リスト</a></li>
+        <li><a href="assets/equipment-list.pdf">機材リスト（PDF）</a></li><li><a href="schedule.html">予約状況</a></li></ul>
+      </nav>
+      <nav class="footnav" aria-label="フッターナビゲーション">
+        <h4>Information</h4>
+        <ul><li><a href="access.html">アクセス</a></li><li><a href="about.html">運営について</a></li>
+        <li><a href="about.html#terms">ご利用にあたって</a></li><li><a href="contact.html">お問い合わせ</a></li></ul>
+      </nav>
+    </div>
+    <div class="foot__bot">
+      <p>&copy; <span id="year">2026</span> STUDIO ○○○.</p>
+      <p>CONCEPT WORK — PROPOSAL MOCKUP</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/schedule-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

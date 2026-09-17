@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="ロゴマーク（仮）">
+  <rect width="120" height="120" rx="8" fill="#0f0d0b"/>
+  <rect x="1" y="1" width="118" height="118" rx="7" fill="none" stroke="#c08a4a" stroke-width="1.5" opacity=".55"/>
+  <g stroke="#c08a4a" stroke-width="5.5" stroke-linecap="round" fill="none">
+    <path d="M28 46 v28"/>
+    <path d="M42 34 v52"/>
+    <path d="M56 24 v72"/>
+    <path d="M70 38 v44"/>
+    <path d="M84 50 v20"/>
+  </g>
+</svg>

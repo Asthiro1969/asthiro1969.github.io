@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="最寄駅からスタジオまでの略図">
+<defs>
+ <style>
+  .lb{font-family:"DM Mono",ui-monospace,monospace;font-size:15px;fill:#9c8d78;letter-spacing:.1em}
+  .lbj{font-family:"Zen Kaku Gothic New",sans-serif;font-size:15px;fill:#9c8d78}
+  .st{font-family:"DM Mono",ui-monospace,monospace;font-size:16px;fill:#f2e7d5;letter-spacing:.14em}
+ </style>
+ <filter id="gl" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1000" height="640" fill="#191512"/>
+
+<!-- blocks -->
+<g fill="#221c17">
+  <rect x="40" y="212" width="196" height="188" rx="2"/>
+  <rect x="324" y="212" width="112" height="188" rx="2"/>
+  <rect x="524" y="212" width="152" height="188" rx="2"/>
+  <rect x="764" y="212" width="196" height="188" rx="2"/>
+  <rect x="40" y="24" width="196" height="112" rx="2"/>
+  <rect x="524" y="24" width="152" height="112" rx="2"/>
+  <rect x="324" y="488" width="112" height="128" rx="2"/>
+  <rect x="764" y="24" width="196" height="112" rx="2"/>
+</g>
+
+<!-- roads -->
+<g stroke="#2f2822" fill="none" stroke-linecap="square">
+  <path d="M0 174 H1000" stroke-width="42"/>
+  <path d="M0 452 H1000" stroke-width="32"/>
+  <path d="M280 0 V640" stroke-width="36"/>
+  <path d="M720 0 V640" stroke-width="26"/>
+  <path d="M480 174 V640" stroke-width="22"/>
+</g>
+<g stroke="#463c31" stroke-width="1.6" stroke-dasharray="9 11" fill="none">
+  <path d="M0 174 H1000"/><path d="M280 0 V640"/>
+</g>
+
+<!-- railway -->
+<path d="M0 548 H1000" stroke="#3a322a" stroke-width="18" fill="none"/>
+<path d="M0 548 H1000" stroke="#191512" stroke-width="6" stroke-dasharray="18 18" fill="none"/>
+
+<!-- station -->
+<g transform="translate(700,508)">
+  <rect width="204" height="82" rx="3" fill="#3a322a"/>
+  <rect x="9" y="9" width="186" height="64" rx="2" fill="#241e1a"/>
+  <text class="st" x="102" y="49" text-anchor="middle">〇〇駅</text>
+</g>
+
+<!-- walking route -->
+<path d="M780 500 V452 H480 V250" fill="none" stroke="#c08a4a" stroke-width="6" stroke-dasharray="2 15" stroke-linecap="round" opacity=".95"/>
+
+<!-- studio -->
+<g transform="translate(480,174)">
+  <ellipse cx="0" cy="-30" rx="120" ry="96" fill="#c08a4a" opacity=".22" filter="url(#gl)"/>
+  <rect x="-74" y="4" width="148" height="76" rx="2" fill="#0f0d0b" stroke="#c08a4a" stroke-width="2"/>
+  <text class="st" x="0" y="52" text-anchor="middle" font-size="16">STUDIO</text>
+  <path d="M0 -46 a30 30 0 1 1 .1 0 z" fill="#c08a4a"/>
+  <circle cx="0" cy="-76" r="11" fill="#191512"/>
+  <path d="M-13 -50 L0 -16 L13 -50 Z" fill="#c08a4a"/>
+</g>
+
+<text class="lbj" x="26" y="164">〇〇通り</text>
+<text class="lbj" x="26" y="442">〇〇本町通り</text>
+<text class="lb" x="790" y="606">〇〇 LINE</text>
+<text class="lb" x="516" y="436" fill="#dcae72">5 MIN WALK</text>
+<text class="lbj" x="68" y="94">コンビニ</text>
+<text class="lbj" x="790" y="256">コインパーキング</text>
+</svg>

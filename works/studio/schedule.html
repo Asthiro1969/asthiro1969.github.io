@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>予約状況｜STUDIO ○○○</title>
+<meta name="description" content="架空案件モックアップ：各スタジオの空き状況を月間カレンダーで公開しています。仮押さえも承ります。">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://asthiro1969.github.io/works/studio/schedule.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="STUDIO ○○○">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://asthiro1969.github.io/works/studio/schedule.html">
+<meta property="og:title" content="予約状況｜STUDIO ○○○">
+<meta property="og:description" content="各スタジオの空き状況を月間カレンダーで公開しています。仮押さえも承ります。">
+<meta property="og:image" content="https://asthiro1969.github.io/works/studio/assets/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0908">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="propbar">
+  <b>［ 提案作品 ］</b> レコーディング／MAスタジオ Webサイト デザイン案 — スタジオ名・ロゴ・写真・住所・料金はすべて架空のものです
+</div>
+
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="index.html">
+      <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">
+      <span class="brand__t"><span class="brand__n">STUDIO ○○○</span><span class="brand__s">RECORDING &amp; MA</span></span>
+    </a>
+    <nav class="gnav" id="gnav" aria-label="メインナビゲーション">
+      <a href="index.html">TOP<small>トップ</small></a>
+      <a href="studio.html">STUDIO<small>スタジオ</small></a>
+      <a href="schedule.html" aria-current="page">SCHEDULE<small>予約状況</small></a>
+      <a href="access.html">ACCESS<small>アクセス</small></a>
+      <a href="about.html">ABOUT<small>運営について</small></a>
+      <a href="contact.html">CONTACT<small>お問い合わせ</small></a>
+    </nav>
+    <div class="hdr__cta">
+      <p class="tel"><b>03-0000-0000</b><span>受付 平日 10:00–19:00</span></p>
+      <a class="btn btn--sm" href="contact.html"><span>Contact</span></a>
+      <button class="navtog" type="button" aria-label="メニューを開く" aria-controls="gnav" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="phead">
+  <div class="wrap">
+    <p class="en">Schedule</p>
+    <h1>予約状況</h1>
+    <p class="crumbs"><a href="index.html">TOP</a> <span>/</span> <span>SCHEDULE</span></p>
+  </div>
+</div>
+
+<main>
+<section class="sec sec--paper">
+  <div class="wrap">
+    <p class="lead rv" style="font-size:17px;max-width:46em;margin-bottom:44px">2026年11月のオープン以降の空き状況です。電話をかける前に、ここで日程を決められます。<b>△（一部空き）</b>の日も、時間帯によってはお取りできることがほとんどです。</p>
+
+      <div class="schbar">
+        <div class="schnav">
+          <button type="button" id="sch-prev" aria-label="前の月">&#9664;</button>
+          <p class="schmonth mono" id="sch-month">2026.11</p>
+          <button type="button" id="sch-next" aria-label="次の月">&#9654;</button>
+        </div>
+        <p class="schupd" id="sch-updated">LAST UPDATE —</p>
+      </div>
+      <div class="schwrap" id="schedule-calendar"></div>
+      <p class="legend">
+        <span><b class="mk-o">○</b> 空きあり</span>
+        <span><b class="mk-t">△</b> 一部空き（要相談）</span>
+        <span><b class="mk-x">×</b> 予約済み</span>
+        <span><b class="mk-n">-</b> 休業日</span>
+      </p>
+      <p class="schnote">※ 表示は目安です。最新の空き状況・お仮押さえはお電話またはお問い合わせフォームにてご確認ください。</p>
+
+      <div class="editdemo">
+        <div class="cta-note rv">
+          <p class="eyebrow">For administrator</p>
+          <h3 class="h-sec" style="font-size:clamp(21px,2.5vw,30px)">更新は、<em>1行だけ</em>。<br>Webの知識はいりません。</h3>
+          <p class="lead" style="margin-top:20px">この表は <code>schedule-data.js</code> というテキストファイル1つで動いています。日付の行の記号を打ち替えて保存・アップロードすれば、それで更新完了。HTMLもデザインも触りません。</p>
+          <label class="demo-toggle">
+            <input type="checkbox" id="demo-switch">
+            <span class="switch" aria-hidden="true"></span>
+            <span>更新デモを試す</span>
+          </label>
+          <p class="schnote" style="margin-top:14px">※ ONにして表のマークをクリックすると、右のデータファイルの該当行が、実運用と同じ形で書き換わる様子をご確認いただけます（この画面上のプレビューです。ファイル自体は変更されません）。</p>
+        </div>
+        <div class="codebox mono rv rv-2" id="codebox" aria-live="polite"></div>
+      </div>
+
+    <div class="dlcard rv" style="margin-top:clamp(56px,7vw,88px)">
+      <div><b>この日程で相談したい</b><span>日付・部屋・おおよその時間をお知らせください</span></div>
+      <a class="btn btn--ink" href="contact.html"><span>お問い合わせフォームへ<i class="ar">→</i></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--night">
+  <div class="wrap wrap--tight">
+    <p class="eyebrow rv">Operation</p>
+    <h2 class="h-sec rv">運用について<span class="sub-en">how it is updated</span></h2>
+    <dl class="dl rv" style="margin-top:34px">
+      <div><dt>更新方法</dt><dd>データファイル1つ（<code>schedule-data.js</code>）の書き換え。HTML・CSSには触れません。</dd></div>
+      <div><dt>他の方式</dt><dd>ブラウザ上でクリックして更新する管理画面／Googleスプレッドシート連携にも変更できます。</dd></div>
+      <div><dt>部屋の増減</dt><dd><code>SCHEDULE_ROOMS</code> の1行を書き換えれば、表の列も自動で増減します。</dd></div>
+      <div><dt>休業日</dt><dd>記号「-」を入れると、その行が休業日の表示（斜線背景）に変わります。</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<section class="cta">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">Contact</p>
+    <h2>空いている日を、先に押さえてください。</h2>
+    <p>尺・チャンネル数・納品形式をお知らせいただければ、当日〜翌営業日にお見積りをお返しします。<br>「まだ日程だけ」の仮押さえでも構いません。</p>
+    <div class="btn-row">
+      <a class="btn" href="contact.html"><span>お問い合わせ<i class="ar">→</i></span></a>
+      <a class="btn btn--ghost" href="schedule.html"><span>予約状況を見る<i class="ar">→</i></span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <div class="brand">
+          <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="34" height="34">
+          <span class="brand__t"><span class="brand__n">STUDIO ○○○</span><span class="brand__s">RECORDING &amp; MA</span></span>
+        </div>
+        <p class="footaddr">〒000-0000　東京都〇〇区〇〇 1-2-3　〇〇ビル 2F<br>
+        TEL 03-0000-0000／受付 平日 10:00–19:00<br>営業時間 9:00–22:00（土日祝は要予約）</p>
+      </div>
+      <nav class="footnav" aria-label="フッターナビゲーション">
+        <h4>Studio</h4>
+        <ul><li><a href="studio.html">スタジオ紹介</a></li><li><a href="studio.html#equipment">機材リスト</a></li>
+        <li><a href="assets/equipment-list.pdf">機材リスト（PDF）</a></li><li><a href="schedule.html">予約状況</a></li></ul>
+      </nav>
+      <nav class="footnav" aria-label="フッターナビゲーション">
+        <h4>Information</h4>
+        <ul><li><a href="access.html">アクセス</a></li><li><a href="about.html">運営について</a></li>
+        <li><a href="about.html#terms">ご利用にあたって</a></li><li><a href="contact.html">お問い合わせ</a></li></ul>
+      </nav>
+    </div>
+    <div class="foot__bot">
+      <p>&copy; <span id="year">2026</span> STUDIO ○○○.</p>
+      <p>CONCEPT WORK — PROPOSAL MOCKUP</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/schedule-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
